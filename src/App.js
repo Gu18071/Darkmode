@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+
+   const [darkMode, setDarkMode] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={darkMode ? 'dark-mode': 'light-mode'}>
+      <div className="container">
+      <span style={{color: darkMode ? 'grey' : 'yellow'}}>☼</span> 
+        <div className="switch-checkbox">
+    <label className="switch">
+          <input type="checkbox" onChange={() => setDarkMode(!darkMode)}></input>
+          <span className="slider round"></span>
+          </label>
+        </div>
+        <span style={{color: darkMode ? '#c96dfd' : 'grey'}}>☽</span> 
+      </div>
+      <div>
+        <h1 style={{alignItems:'center', justifyContent:'center', display:'flex', position: 'relative'}}> Darkmode </h1>
+      </div>
+
+      
     </div>
   );
 }
